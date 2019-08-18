@@ -1,0 +1,23 @@
+.icon-wrapper {
+
+  .v-avatar {
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: auto;
+      border: solid 1px black;
+    }
+  }
+
+  .title {
+    font-family: 'starwars' !important;
+    text-align: center;
+    cursor: pointer;
+    padding: .15rem;
+    background-color: #FF9;
+    border-radius: .25rem;
+    border: solid 1px black;
+    font-size: 1rem !important;
+  }
+
+}
