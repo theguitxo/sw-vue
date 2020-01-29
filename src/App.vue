@@ -1,19 +1,32 @@
 <template>
   <v-app>
-    <ToolBar></ToolBar>
-    <router-view />
-    <SnackBar></SnackBar>
-    <v-footer
-      color="indigo"
-      dark
-      class="px-2"
+    <Menu />
+
+    <Bar />
+
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+
+    <Footer />
+
+    <v-overlay
+      :value="showOverlay"
     >
-      <a href="https://www.guitxo.com" target="_blank">www.guitxo.com</a>
-      <v-spacer></v-spacer>
-      <div>&copy; {{ new Date().getFullYear() }}</div>
-    </v-footer>
+      <v-progress-circular
+        :size="100"
+        :width="10"
+        color="white"
+        indeterminate
+      ></v-progress-circular>
+    </v-overlay>
+
+    <ErrorDialog />
+
   </v-app>
 </template>
 
 <script src="./App.js"></script>
-<style lang="scss" scoped src="./App.scss"></style>
+<style lang="scss">
+  @import url('./App.scss');
+</style>

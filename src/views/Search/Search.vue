@@ -1,11 +1,10 @@
 <template>
   <v-container>
-    <v-layout row wrap>
-      <v-flex xs12>
-        <SearchForm>
-        </SearchForm>
-      </v-flex>
-    </v-layout>
+    <v-row>
+      <v-col>
+        <searchForm />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
