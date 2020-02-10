@@ -1,39 +1,34 @@
 import { mapGetters } from 'vuex';
 import fileConstants from '@/constants/file';
-import apiConstants from '@/constants/api';
+import searchOptionMixin from '@/mixins/searchOption';
 
-// file constants
 const {
   GET_DATA,
-  GET_OPTION,
 } = fileConstants.GETTERS;
-
-// api constants
-const {
-  FILMS,
-} = apiConstants.OPTIONS;
 
 export default {
   name: 'File',
 
+  mixins: [
+    searchOptionMixin,
+  ],
+
+  components: {
+    FilmsFile: () => import('@/components/File/Types/Films/Films.vue'),
+    PeopleFile: () => import('@/components/File/Types/People/People.vue'),
+    PlanetsFile: () => import('@/components/File/Types/Planets/Planets.vue'),
+    SpeciesFile: () => import('@/components/File/Types/Species/Species.vue'),
+    StarshipsFile: () => import('@/components/File/Types/Starships/Starships.vue'),
+    VehiclesFile: () => import('@/components/File/Types/Vehicles/Vehicles.vue'),
+  },
+
   computed: {
     ...mapGetters({
       getData: `${fileConstants.STORE_NAME}/${GET_DATA}`,
-      getOption: `${fileConstants.STORE_NAME}/${GET_OPTION}`,
     }),
-    getOptionLowerCase() {
-      return this.getOption.toLowerCase();
-    },
-    isFilms() {
-      return this.getOptionToLowerCase === FILMS;
-    },
   },
 
   created() {
-    if (this.getOption === undefined
-      || this.getOption === null
-      || this.getOption === '') {
-      this.$router.push('home');
-    }
+    this.goHomeNoSearchOption();
   },
 };

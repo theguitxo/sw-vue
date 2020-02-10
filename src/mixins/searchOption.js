@@ -1,7 +1,9 @@
 import { mapGetters } from 'vuex';
 import searchConstants from '@/constants/search';
 import apiConstants from '@/constants/api';
+import overlayConstants from '@/constants/overlay';
 
+// api constants
 const {
   OPTIONS,
 } = apiConstants;
@@ -15,9 +17,15 @@ const {
   VEHICLES,
 } = OPTIONS;
 
+// search constants
 const {
   GET_OPTION,
 } = searchConstants.GETTERS;
+
+// overlay constants
+const {
+  GET_VISIBLE,
+} = overlayConstants.GETTERS;
 
 export default {
   name: 'mixinSearchOption',
@@ -25,10 +33,11 @@ export default {
   computed: {
     ...mapGetters({
       getSearchOption: `${searchConstants.STORE_NAME}/${GET_OPTION}`,
+      isSearching: `${overlayConstants.STORE_NAME}/${GET_VISIBLE}`,
     }),
     getOptions: () => OPTIONS,
     getSearchOptionLower() {
-      return this.getSearchOption.toLowerCase();
+      return this.haveSearchOption ? this.getSearchOption.toLowerCase() : '';
     },
     isFilms() {
       return (this.getSearchOptionLower === FILMS);
@@ -49,9 +58,17 @@ export default {
       return (this.getSearchOptionLower === VEHICLES);
     },
     haveSearchOption() {
-      return (this.getSearchOption === undefined
-        || this.getSearchOption === null
-        || this.getSearchOption === '');
+      return (this.getSearchOption !== undefined
+        && this.getSearchOption !== null
+        && this.getSearchOption !== '');
+    },
+  },
+
+  methods: {
+    goHomeNoSearchOption() {
+      if (!this.haveSearchOption) {
+        this.$router.push('home');
+      }
     },
   },
 };

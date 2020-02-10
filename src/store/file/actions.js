@@ -36,6 +36,7 @@ const extraDataKeys = {
     EXTRA_KEYS.SPECIES,
     EXTRA_KEYS.VEHICLES,
     EXTRA_KEYS.STARSHIPS,
+    EXTRA_KEYS.HOMEWORLD,
   ],
   [OPTIONS.PLANETS]: [
     EXTRA_KEYS.RESIDENTS,
@@ -44,6 +45,7 @@ const extraDataKeys = {
   [OPTIONS.SPECIES]: [
     EXTRA_KEYS.PEOPLE,
     EXTRA_KEYS.FILMS,
+    EXTRA_KEYS.HOMEWORLD,
   ],
   [OPTIONS.STARSHIPS]: [
     EXTRA_KEYS.PILOTS,
@@ -57,7 +59,8 @@ const extraDataKeys = {
 
 async function getExtraData(data, keys) {
   return Promise.all(keys.map(async (key) => {
-    const result = await loadMultipleData(data[key]);
+    const list = Array.isArray(data[key]) ? data[key] : [data[key]];
+    const result = await loadMultipleData(list);
     return result;
   })).then((results) => {
     const final = {};
@@ -76,7 +79,6 @@ async function loadItemInfo({ commit }, params) {
   try {
     const extraData = await getExtraData(data, extraDataKeys[option]);
     commit(MUTATIONS.SET_DATA, Object.assign(data, extraData));
-    commit(MUTATIONS.SET_OPTION, option);
   } catch (error) {
     throw (error);
   }
@@ -84,7 +86,6 @@ async function loadItemInfo({ commit }, params) {
 
 function resetData({ commit }) {
   commit(MUTATIONS.SET_DATA, null);
-  commit(MUTATIONS.SET_OPTION, null);
 }
 
 export default {

@@ -1,8 +1,33 @@
 import mixinSearch from '@/mixins/search';
 import searchForm from '@/components/SearchForm/SearchForm.vue';
+import apiConstants from '@/constants/api';
+
+const {
+  FILMS,
+  PEOPLE,
+  PLANETS,
+  SPECIES,
+  STARSHIPS,
+  VEHICLES,
+} = apiConstants.OPTIONS;
+
+const componentNames = {
+  [FILMS]: 'FilmsCard',
+  [PEOPLE]: 'PeopleCard',
+  [PLANETS]: 'PlanetsCard',
+  [SPECIES]: 'SpeciesCard',
+  [STARSHIPS]: 'StarshipsCard',
+  [VEHICLES]: 'VehiclesCard',
+};
 
 export default {
   name: 'Results',
+
+  data() {
+    return {
+      showPaginator: false,
+    };
+  },
 
   mixins: [
     mixinSearch,
@@ -22,18 +47,21 @@ export default {
     showList() {
       return this.getSearchCount > 0;
     },
-    showPaginator() {
-      return this.getSearchCount > 10;
-    },
     showSearchForm() {
       return this.getSearchQuery !== null;
     },
   },
 
   created() {
-    if (this.haveSearchOption) {
-      this.$router.push('home');
-    }
+    this.goHomeNoSearchOption();
+  },
+
+  updated() {
+    this.setShowPaginator();
+  },
+
+  mounted() {
+    this.setShowPaginator();
   },
 
   methods: {
@@ -43,6 +71,18 @@ export default {
         option: this.getSearchOption,
         query: this.getSearchQuery,
       });
+    },
+    setShowPaginator() {
+      if (this.getSearchCount > 10) {
+        const componentToMatch = componentNames[this.getSearchOptionLower];
+        const totalCards = this.$children.filter(child => child.constructor.options.name
+          === componentToMatch).length;
+        if (totalCards === this.getSearchResult.length) {
+          this.showPaginator = true;
+        }
+      } else {
+        this.showPaginator = false;
+      }
     },
   },
 };

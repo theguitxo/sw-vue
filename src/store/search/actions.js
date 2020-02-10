@@ -16,7 +16,6 @@ const {
 
 const {
   SEARCH_BY_PARAMETERS,
-  // SEARCH_BY_URL,
   RESET_PAGE,
   RESET_OPTION,
   RESET_QUERY,

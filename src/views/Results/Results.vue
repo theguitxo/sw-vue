@@ -1,7 +1,8 @@
 <template>
   <v-container
-    v-if="showList"
+    v-if="!isSearching"
   >
+    <!-- Search form -->
     <v-row
       v-if="showSearchForm"
     >
@@ -10,7 +11,11 @@
         <searchForm />
       </v-col>
     </v-row>
-    <v-row>
+
+    <!-- Results list -->
+    <v-row
+      v-if="showList"
+    >
       <v-col
         v-for="(item, key) of getSearchResult"
         :key="key"
@@ -45,6 +50,8 @@
         />
       </v-col>
     </v-row>
+
+    <!-- Paginator -->
     <v-row
       v-if="showPaginator"
     >

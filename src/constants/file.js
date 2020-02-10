@@ -2,11 +2,9 @@ export default {
   STORE_NAME: 'file',
   GETTERS: {
     GET_DATA: 'getData',
-    GET_OPTION: 'getOption',
   },
   MUTATIONS: {
     SET_DATA: 'setData',
-    SET_OPTION: 'setOption',
   },
   ACTIONS: {
     RESET_DATA: 'resetData',
@@ -22,5 +20,6 @@ export default {
     RESIDENTS: 'residents',
     PEOPLE: 'people',
     PILOTS: 'pilots',
+    HOMEWORLD: 'homeworld',
   },
 };
