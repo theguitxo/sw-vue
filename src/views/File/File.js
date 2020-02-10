@@ -31,4 +31,10 @@ export default {
   created() {
     this.goHomeNoSearchOption();
   },
+
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
+  },
 };

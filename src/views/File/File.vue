@@ -30,6 +30,18 @@
         />
       </v-col>
     </v-row>
+    <v-row>
+      <v-col
+        class="text-right"
+      >
+        <v-btn
+          class="primary"
+          @click="goBack"
+        >
+          Back
+        </v-btn>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
