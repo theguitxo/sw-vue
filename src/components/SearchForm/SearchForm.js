@@ -37,7 +37,7 @@ export default {
     getSearchItems() {
       return Object.keys(this.getOptions).map((item) => {
         const option = {
-          value: this.getOptions[item],
+          value: item,
           text: `${this.getOptions[item].charAt(0).toUpperCase()}${this.getOptions[item].slice(1)}`,
         };
         return option;
