@@ -4,6 +4,7 @@ import Menu from '@/components/AppComponents/Menu/Menu.vue';
 import Bar from '@/components/AppComponents/Bar/Bar.vue';
 import Footer from '@/components/AppComponents/Footer/Footer.vue';
 import ErrorDialog from '@/components/ErrorDialog/ErrorDialog.vue';
+import AboutDialog from '@/components/AboutDialog/AboutDialog.vue';
 
 import overlayConstants from '@/constants/overlay';
 import dialogConstants from '@/constants/dialog';
@@ -35,6 +36,7 @@ export default {
     Bar,
     Footer,
     ErrorDialog,
+    AboutDialog,
   },
 
   computed: {

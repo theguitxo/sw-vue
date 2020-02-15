@@ -12,8 +12,7 @@
     <v-btn
       color="white"
       outlined
-      to="about"
-    >
+      @click="showAbout">
       About
     </v-btn>
   </v-app-bar>

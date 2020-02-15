@@ -4,7 +4,7 @@
   >
     <v-row>
       <v-col
-        class="white-translucid"
+        class="py-5 px-5 white-translucid"
         cols="10"
         offset="1"
         sm="8"
@@ -19,9 +19,9 @@
           To obtain data it uses the SWAPI, hosted in:
         </p>
         <p>
-          <a href="https://www.swapi.co/" target="_blank">
+          <a :href="SWAPI_URL" target="_blank">
             <span>
-              https://www.swapi.co/
+              {{ SWAPI_URL }}
             </span>
           </a>
         </p>
@@ -29,11 +29,17 @@
           Is programed with VueJS and the code is available in this Github repository:
         </p>
         <p>
-          <a href="https://github.com/theguitxo/sw-vue" target="_blank">
+          <a :href="GITHUB_REPOSITORY" target="_blank">
             <span>
-              https://github.com/theguitxo/sw-vue
+              {{ GITHUB_REPOSITORY }}
             </span>
           </a>
+        </p>
+        <p>
+          You can search information using the menu.
+          There are an option for each category (films, people, ...)
+          and an option for search through a form where you can choose
+          the category and the words to search.
         </p>
       </v-col>
     </v-row>

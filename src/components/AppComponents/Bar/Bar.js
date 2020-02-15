@@ -1,4 +1,5 @@
 import { mapActions } from 'vuex';
+import aboutConstants from '@/constants/about';
 
 import menuConstants from '@/constants/menu';
 
@@ -13,6 +14,7 @@ export default {
   methods: {
     ...mapActions({
       toggleDrawer: `${STORE_NAME}/${ACTIONS.TOOGLE_DRAWER}`,
+      showAbout: `${aboutConstants.STORE_NAME}/${aboutConstants.ACTIONS.SHOW_ABOUT}`,
     }),
   },
 };

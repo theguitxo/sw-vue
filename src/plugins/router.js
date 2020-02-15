@@ -28,11 +28,6 @@ export default new Router({
       component: () => import(/* webpackChunkName: "file" */ '@/views/File/File.vue'),
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/About/About.vue'),
-    },
-    {
       path: '*',
       redirect: '/',
     },

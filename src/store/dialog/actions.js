@@ -5,12 +5,16 @@ const {
   HIDE_DIALOG,
 } = constants.ACTIONS;
 
+const {
+  DIALOG,
+} = constants.MUTATIONS;
+
 function showDialog({ commit }) {
-  commit('dialog', true);
+  commit(DIALOG, true);
 }
 
 function hideDialog({ commit }) {
-  commit('dialog', false);
+  commit(DIALOG, false);
 }
 
 export default {

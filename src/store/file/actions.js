@@ -58,8 +58,6 @@ const extraDataKeys = {
 };
 
 async function getExtraData(data, keys) {
-  console.log(data);
-  console.log(keys);
   return Promise.all(keys.map(async (key) => {
     const list = Array.isArray(data[key]) ? data[key] : [data[key]];
     const result = await loadMultipleData(list);

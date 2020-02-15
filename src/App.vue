@@ -23,6 +23,8 @@
 
     <ErrorDialog />
 
+    <AboutDialog />
+
   </v-app>
 </template>
 
