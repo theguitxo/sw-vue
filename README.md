@@ -1,39 +1,35 @@
-# sw
+# Star Wars Querying App
 
-## Project setup
+## Description
+
+This app permits to querying data about the Star Wars films.
+Uses an API that you can locate at [https://www.swapi.co/](https://www.swapi.co/)
+
+![alt text](./example.1.PNG "Home screenshot")
+![alt text](./example.2.PNG "Search result screenshot")
+
+## Execute the app
+
+After cloning the project it must to install the dependencies. To do this it must launch this command:
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+When the dependencies are installed, you can launch a local server to run the app with this command:
+
 ```
-yarn run serve
+yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+When server is available, the console shows this message:
 
-### Run your tests
-```
-yarn run test
-```
+![alt text](./server.png "Server information")
 
-### Lints and fixes files
-```
-yarn run lint
-```
+In a browser, enter the url indicated by the server according to if you want to access from the local machine or from a network machine.
 
-### Run your end-to-end tests
-```
-yarn run test:e2e
-```
+## Demo
 
-### Run your unit tests
-```
-yarn run test:unit
-```
+You can see a demo of the app here:
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[Demo](http://sw-vue.guitxo.com/)
