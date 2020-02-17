@@ -89,22 +89,21 @@ export default {
 
     /**
      * @description search
-     * @param {*} options
+     * @param {Object} options an object with the option (films, people, ...) and query to search
      */
     async search(options) {
       this.showOverlay();
       try {
         await this.searchByParameters(options);
         if (this.getSearchCount <= 0) {
+          // there aren't results, so must show the error dialog
           this.setDialogErrorType(TYPES.WARNING);
           this.setDialogErrorDescription(MESSAGES.NO_DATA);
           this.showDialog();
         } else {
-          // calculate the number of pages
           this.navigateToSearchResults();
         }
       } catch (error) {
-        console.log(error);
         this.setDialogErrorType(TYPES.ERROR);
         this.setDialogErrorDescription(getRequestErrorMessage(error));
         this.showDialog();
@@ -114,7 +113,7 @@ export default {
     },
 
     /**
-     * @description navigateToSearchResults
+     * @description navigate to the results page, if it's not there
      */
     navigateToSearchResults() {
       if (this.$router.currentRoute.name !== ROUTES.RESULTS) {

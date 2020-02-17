@@ -65,6 +65,9 @@ export default {
   },
 
   methods: {
+    /**
+     * @description navigates to the home page if no search option is been set
+     */
     goHomeNoSearchOption() {
       if (!this.haveSearchOption) {
         this.$router.push('home');

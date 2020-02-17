@@ -5,12 +5,24 @@ const {
   HIDE_OVERLAY,
 } = constants.ACTIONS;
 
+const {
+  VISIBLE,
+} = constants.MUTATIONS;
+
+/**
+ * @description shows the overlay
+ * @param {Object} param0 Vuex object
+ */
 function showOverlay({ commit }) {
-  commit('visible', true);
+  commit(VISIBLE, true);
 }
 
+/**
+ * @description hides the overlay
+ * @param {Object} param0 Vuex object
+ */
 function hideOverlay({ commit }) {
-  commit('visible', false);
+  commit(VISIBLE, false);
 }
 
 export default {

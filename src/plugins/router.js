@@ -12,16 +12,19 @@ export default new Router({
       name: 'home',
       component: Home,
     },
+    // view with the result of a search and, if it's necessary, the search form
     {
       path: '/results',
       name: 'results',
       component: () => import(/* webpackChunkName: "results" */ '@/views/Results/Results.vue'),
     },
+    // view with only the search form
     {
       path: '/search',
       name: 'search',
       component: () => import(/* webpackChunkName: "search" */ '@/views/Search/Search.vue'),
     },
+    // view that shows all the information about an item
     {
       path: '/file',
       name: 'file',

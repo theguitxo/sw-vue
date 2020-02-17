@@ -27,9 +27,9 @@ const {
 } = apiConstants;
 
 /**
- * @description sear
- * @param {*} param0
- * @param {*} type
+ * @description makes a search using the received parameters
+ * @param {Object} param0 Vuex object
+ * @param {Object} parameters Object with the type of search (films, people, ...) and the query
  */
 async function searchByParameters({ commit, getters }, parameters) {
   // destructuring values from parameters
@@ -73,14 +73,26 @@ async function searchByParameters({ commit, getters }, parameters) {
   }
 }
 
+/**
+ * @description resets the current number of showing page
+ * @param {Object} param0 Vuex object
+ */
 function resetPage({ commit }) {
   commit(MUTATIONS.SET_PAGE, null);
 }
 
+/**
+ * @description reset the option to search
+ * @param {Object} param0 Vuex object
+ */
 function resetOption({ commit }) {
   commit(MUTATIONS.SET_OPTION, null);
 }
 
+/**
+ * @description reset the query to search
+ * @param {Object} param0 Vuex object
+ */
 function resetQuery({ commit }) {
   commit(MUTATIONS.SET_QUERY, null);
 }

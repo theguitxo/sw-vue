@@ -57,6 +57,12 @@ const extraDataKeys = {
   ],
 };
 
+/**
+ * @description loads the extra data of an item like as planets, vehicles, ... from their urls
+ * @param {Object} data object that have the data with the urls with the extra data
+ * @param {String} keys id for get the list of keys in data object that contains the data urls
+ * @returns an object with the initial data of the item and the loaded extra data
+ */
 async function getExtraData(data, keys) {
   return Promise.all(keys.map(async (key) => {
     const list = Array.isArray(data[key]) ? data[key] : [data[key]];
@@ -71,6 +77,11 @@ async function getExtraData(data, keys) {
   });
 }
 
+/**
+ * @description loads all the infomation about an item
+ * @param {Object} param0 Vuex object
+ * @param {Object} params object with the data of the item and their type
+ */
 async function loadItemInfo({ commit }, params) {
   const {
     data,
@@ -84,6 +95,10 @@ async function loadItemInfo({ commit }, params) {
   }
 }
 
+/**
+ * @description sets the information of the item to null
+ * @param {Object} param0 Vuex oject
+ */
 function resetData({ commit }) {
   commit(MUTATIONS.SET_DATA, null);
 }

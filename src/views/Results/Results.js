@@ -72,7 +72,16 @@ export default {
         query: this.getSearchQuery,
       });
     },
+    /**
+     * @description returns if it must to show the paginator or not
+     * @returns {Boolean}
+     */
     setShowPaginator() {
+      /**
+       * Only if the total of results if bigger than 10 and when
+       * the card component needed according the search option
+       * is loaded, it must show the paginator
+       */
       if (this.getSearchCount > 10) {
         const componentToMatch = componentNames[this.getSearchOptionLower];
         const totalCards = this.$children.filter(child => child.constructor.options.name

@@ -4,8 +4,12 @@ const {
   TOOGLE_DRAWER,
 } = constants.ACTIONS;
 
+const {
+  DRAWER,
+} = constants.MUTATIONS;
+
 function toggleDrawer({ commit, state }) {
-  commit('drawer', !state.drawer);
+  commit(DRAWER, !state.drawer);
 }
 
 export default {

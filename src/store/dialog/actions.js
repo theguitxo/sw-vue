@@ -9,10 +9,18 @@ const {
   DIALOG,
 } = constants.MUTATIONS;
 
+/**
+ * @description shows the dialog pop-up for show errors
+ * @param {Object} param0 Vuex object
+ */
 function showDialog({ commit }) {
   commit(DIALOG, true);
 }
 
+/**
+ * @description hides the dialog pop-up for show errors
+ * @param {Object} param0 Vuex object
+ */
 function hideDialog({ commit }) {
   commit(DIALOG, false);
 }

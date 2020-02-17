@@ -30,5 +30,7 @@
 
 <script src="./App.js"></script>
 <style lang="scss">
-  @import url('./App.scss');
+  * {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+  }
 </style>
