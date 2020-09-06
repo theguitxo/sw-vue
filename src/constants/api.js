@@ -1,5 +1,5 @@
 export default {
-  URL: 'https://swapi.co/api/',
+  URL: 'https://swapi.dev/api/',
   OPTIONS: {
     FILMS: 'films',
     PEOPLE: 'people',
